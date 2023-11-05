@@ -15,7 +15,9 @@ This is an implementation of Compression tool system design problem
 ### ex: path-to-file -c
 
 ### interesting part is converting huffman code to bits to write as header and then reading it back 
- '''
+
+```
+Writing a huffman code for a character to compressed file
  private static void writeHuffmanCodeAsBits(DataOutputStream dos, String huffmanCode) throws IOException {
    int bitsToWrite = huffmanCode.length();
    int bitPosition = 0;
@@ -29,11 +31,12 @@ This is an implementation of Compression tool system design problem
      dos.writeByte(toWrite);
    }
  }
-
-
+```
+```
+Reading a huffman code for a character from a compressed file
 private String readHuffmanCodeAsBits(DataInputStream dis, int codeLength) throws IOException {
   StringBuilder huffmanCode = new StringBuilder(codeLength);
-  int bitsToRead = codeLength;
+  int bitsToRead = codeLength;  # length of huffman code stored to compressed file
   while (bitsToRead > 0) {
     byte readByte = dis.readByte();
     for (int i = 7; i >= 0 && bitsToRead > 0; i--) {
@@ -44,4 +47,4 @@ private String readHuffmanCodeAsBits(DataInputStream dis, int codeLength) throws
   }
   return huffmanCode.toString();
 }
- '''
+```
