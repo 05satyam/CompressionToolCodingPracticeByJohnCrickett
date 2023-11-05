@@ -8,7 +8,7 @@ import java.util.Map;
 public class Main {
 
     public static void main(String[] args){
-        //String path = "/Users/satyammittal/IdeaProjects/CompressionToolCodingPracticeByJohnCrickett/text-compress.txt";
+        //String path = "/Users/satyammittal/IdeaProjects/CompressionToolCodingPracticeByJohnCrickett/text.txt";
         try {
             CompDecomFactory cdObj  = null;
 

@@ -25,7 +25,7 @@ public class CompressFile implements CompDecomFactory {
         HuffManNode root = huffManTreeObj.createHuffManTree(mapOfCharFreqFromFile);
 
         Map<Character, String> huffManCode = huffManTreeObj.huffManPrefixTable(root);
-
+        System.out.println("compress huffManCode size "+ huffManCode.size());
 
         String outputFileName = loadAndReadFileObj.getFileNameFromGivenPath(path, "-compress");
         CompressFile.encoded(data, outputFileName, huffManCode);
@@ -42,6 +42,7 @@ public class CompressFile implements CompDecomFactory {
      */
     public static void writeHeader(Map<Character, String> huffmanCodes, DataOutputStream dos) throws IOException {
         dos.writeInt(huffmanCodes.size());
+
         for (Map.Entry<Character, String> entry : huffmanCodes.entrySet()) {
             // Write the character
             dos.writeChar(entry.getKey());
